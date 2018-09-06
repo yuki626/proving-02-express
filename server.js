@@ -8,10 +8,10 @@ var PORT=8080;
 //We need a function which handles requests and send response
 //reponse.end simply will show whatever is entered in the url address, so it's "/" plus whatever
 //request.url is the method holding the info in the url
-function handleRequest(request, response){
+function handleRequest(req, res){
 
 	fs.readFile("index.html", function(err, data){
-		res.writeHead(200, {'Content-Type,: 'text/html'});
+		res.writeHead(200, {'Content-Type' : 'text/html'});
 		res.end(data);	
 	})
 
