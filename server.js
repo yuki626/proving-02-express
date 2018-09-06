@@ -1,5 +1,6 @@
 //Lets require/import the HTTP module
 var http = require('http');
+var fs = require('fs');
 
 //Lets define a port we want to listen to
 var PORT=8080;
@@ -8,7 +9,12 @@ var PORT=8080;
 //reponse.end simply will show whatever is entered in the url address, so it's "/" plus whatever
 //request.url is the method holding the info in the url
 function handleRequest(request, response){
-    response.end('It Works!! Path Hit: ' + request.url);
+
+	fs.readFile("index.html", function(err, data){
+		res.writeHead(200, {'Content-Type,: 'text/html'});
+		res.end(data);	
+	})
+
 }
 
 //test change method from "end" to "start" will show that it doesn't work. there's no start method
